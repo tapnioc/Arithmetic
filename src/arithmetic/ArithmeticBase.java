@@ -5,35 +5,52 @@
  */
 package arithmetic;
 
+import arithmetic.ArithmeticBase.Operator;
 import java.util.Scanner;
 
-/** This class takes String input plus,minus,divide and times
- * from user and execute the arithmetic operation
- * change the code to use enum instead String and add object oriented principles satisfy as comment in the code
- * @author sivagamasrinivasan
- * date 02/19
+/**
+ * This class takes String input plus,minus,divide and times from user and
+ * execute the arithmetic operation change the code to use enum instead String
+ * and add object oriented principles satisfy as comment in the code
+ *
+ * @author sivagamasrinivasan date 02/19
+ * Christian Tapnio 991359879
  */
-public class ArithmeticBase 
-{
- public double x,y;
-    double calculate(double x, double y) 
-        {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("enter String");
-        String s= sc.next();
-        switch (s.toUpperCase()) 
-        {
-            case "PLUS":
+public class ArithmeticBase {
+
+    public double x, y;
+    public int z;
+    
+    public enum Operator {
+        PLUS, MINUS, TIMES, DIVIDE
+    };
+    
+    Operator assign(int z){
+        Operator operator = null;
+        switch (z){
+            case 1: return operator.PLUS;
+            case 2: return operator.MINUS;
+            case 3: return operator.TIMES;
+            case 4: return operator.DIVIDE;
+        }
+        return operator;
+    }
+    
+    double calculate(double x, double y, Operator operator) {
+     
+        switch (operator) {
+            case PLUS:
                 return x + y;
-            case "MINUS":
+            case MINUS:
                 return x - y;
-            case "TIMES":
+            case TIMES:
                 return x * y;
-            case "DIVIDE":
+            case DIVIDE:
                 return x / y;
             default:
                 throw new AssertionError("Unknown operations " + this);
         }
+        
     }
-   
+
 }
