@@ -6,7 +6,6 @@
 package arithmetic;
 
 import arithmetic.ArithmeticBase.Operator;
-import static java.lang.String.valueOf;
 import java.util.Scanner;
 
 /**
